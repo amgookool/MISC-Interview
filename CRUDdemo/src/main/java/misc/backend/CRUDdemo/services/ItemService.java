@@ -4,6 +4,9 @@ import java.util.List;
 
 import misc.backend.CRUDdemo.models.ItemEntity;
 
+// The service interface for the item entity
+// We define the service functions that will be used in the controller
+// This file is treated as a Java interface // header file in C/C++
 public interface ItemService {
 
     // Service function for getting all items

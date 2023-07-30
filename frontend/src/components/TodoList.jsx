@@ -64,12 +64,23 @@ const TodoList = () => {
 
   return (
     <div>
+      {/* The todos are displayed as a list of cards 
+        First Check if the todos array is empty
+        If the todos array is empty, display a message
+        If the todos array is not empty, display the todos as a list of cards
+      */}
       {todos.length === 0 ? (
-        <p>No todos found</p>
+        <h4>No Todos found</h4>
       ) : (
+        // The todos are displayed as a list of cards
         todos.map((todo) => (
+          // Each todo is displayed as a card
           <Card key={todo.id} className="mb-2">
             <Card.Body>
+              {/* 
+              Check if the editingTodoId is equal to the id of the todo
+              If the editingTodoId is equal to the id of the todo, display the form to edit the todo
+              */}
               {editingTodoId === todo.id ? (
                 <Form>
                   <Form.Group controlId={`editTodoTitle${todo.id}`}>
@@ -100,22 +111,28 @@ const TodoList = () => {
                   </Button>
                 </Form>
               ) : (
+                // If the editingTodoId is not equal to the id of the todo, display the todo
                 <>
                   <Card.Title>{todo.name}</Card.Title>
                   <Card.Text>{todo.description}</Card.Text>
+                  {/* 
+                  // The Edit and Delete buttons are disabled if the editingTodoId is not null
+                  // This is done to prevent the user from editing or deleting a todo while another todo is being edited
+                  */}
                   <Button
                     variant="primary"
                     onClick={() => handleEditTodo(todo)}
                     disabled={editingTodoId !== null}
                   >
-                    Edit
+                    <h6>Edit</h6>
                   </Button>
+                  
                   <Button
                     variant="danger"
                     onClick={() => handleDeleteTodo(todo.id)}
                     disabled={editingTodoId !== null}
                   >
-                    Delete
+                    <h6>Delete</h6>
                   </Button>
                 </>
               )}

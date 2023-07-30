@@ -1,14 +1,15 @@
 package misc.backend.CRUDdemo.models;
 
+// Import the necessary packages
 import jakarta.persistence.*;
 
+// Model class for the item entity (DB Model/Table)
 @Entity
 @Table(name = "items")
 public class ItemEntity {
 
     // Model Attributes
     @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;

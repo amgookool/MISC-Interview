@@ -8,17 +8,21 @@ import misc.backend.CRUDdemo.models.ItemEntity;
 import misc.backend.CRUDdemo.repository.ItemRepository;
 import misc.backend.CRUDdemo.services.ItemService;
 
+// The service implementation class implements the service interface for the item entity
+// We define the service functions that will be used in the controller
+// Here we can access the repository methods for performing CRUD operations on the entity
 @Service
 public class ItemServiceImplementation implements ItemService {
-
+    // Initialize the item repository object
     private final ItemRepository itemRepository;
 
+    // Constructor for the service implementation class
     public ItemServiceImplementation(ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
     }
 
     // Service function for getting all items
-    @Override
+    @Override // Override the function from the interface
     public List<ItemEntity> getAllItems() {
         return itemRepository.findAll();
     }
@@ -38,7 +42,9 @@ public class ItemServiceImplementation implements ItemService {
     // Service function for updating an item
     @Override
     public boolean updateItem(long id, ItemEntity item) {
+        // Get the item by id
         ItemEntity existingItem = itemRepository.findById(id).orElse(null);
+        // If the item exists, update it with the new values and save it
         if (existingItem != null) {
             existingItem.setName(item.getName());
             existingItem.setDescription(item.getDescription());
@@ -47,20 +53,6 @@ public class ItemServiceImplementation implements ItemService {
         } else {
             return false;
         }
-
-        // ItemEntity itemData = itemService.getItemById(id);
-        // if (itemData != null) {
-        // itemData.setName(item.getName());
-        // itemData.setDescription(item.getDescription());
-        // return new ResponseEntity<>(itemService.createItem(itemData), HttpStatus.OK);
-        // } else {
-        // return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-        // }
-
-
-
-
-
     }
 
     // Service function for deleting an item by id
