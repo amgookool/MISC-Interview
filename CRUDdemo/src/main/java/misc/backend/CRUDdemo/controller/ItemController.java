@@ -13,6 +13,7 @@ import misc.backend.CRUDdemo.models.ItemEntity;
 import misc.backend.CRUDdemo.services.ItemService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/items")
 public class ItemController {
 
