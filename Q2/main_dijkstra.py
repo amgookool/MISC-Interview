@@ -122,20 +122,21 @@ def display_board(board: [[int]], path=None, start=None, end=None):
 
 if __name__ == "__main__":
     # Test case 1
-    # board1 = [
-    #     [2, 0, 1, 0, 0],
-    #     [0, 0, 1, 1, 0],
-    #     [0, 1, 0, 1, 0],
-    #     [0, 0, 0, 1, 0],
-    #     [0, 0, 0, 0, 3]
-    # ]
-    # start1 = (0, 0)
-    # end1 = (4, 4)
-    # print("Test case 1:")
-    # display_board(board1)
-    # shortest_path = bfs(board1, start1, end1)
-    # print("Shortest Path:", shortest_path)
-    # print("Shortest path length:", len(shortest_path) - 1)
+    board1 = [
+        [2, 0, 1, 0, 0],
+        [0, 0, 1, 1, 0],
+        [0, 1, 0, 1, 0],
+        [0, 0, 0, 1, 0],
+        [0, 0, 0, 0, 3]
+    ]
+    start1 = (0, 0)
+    end1 = (4, 4)
+    print("Test case 1:")
+    display_board(board1)
+    shortest_path = dijkstras(board1, start1, end1)
+    print("Shortest Path:", shortest_path)
+    print("Shortest path length:", len(shortest_path) - 1)
+    display_board(board1, shortest_path, start=start1, end=end1)
 
     # Test case 2
     board2 = [
