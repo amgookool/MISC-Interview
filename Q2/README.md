@@ -38,3 +38,47 @@ _Note_: Knowing the board size can help optimize the memory usage and algorithm 
 
 
 ## Implementation (Dijkstra's Algorithm Approach)
+
+### Understanding the problem
+
+The problem is to find the shortest path from a starting point (A) to an ending point (B) on a game board that may have walls (indicated by '#'). 
+The ball can only move in one direction until it encounters a wall, and then it can choose to move left, right, up, or down from that point. 
+The goal is to find the shortest path for the ball to reach the ending point while avoiding walls.
+
+### Representing the ball
+We will represent the game board as a 2D grid. Each cell in the grid will have one of the following values:
+
+- 'A' to represent the starting point.
+- 'B' to represent the ending point.
+- '-' to represent an empty path.
+- '#' to represent a wall.
+- '*' to represent the ball's current position during the algorithm execution
+
+### Dijkstra's ALgorithm
+Dijkstra's algorithm is a graph traversal algorithm that helps find the shortest path from a starting node to all other nodes in a weighted graph. 
+In our case, we will treat the game board as a graph, where each cell is a node, and the cost to move from one cell to an adjacent cell is 1, except when moving to a wall cell or revisiting a cell.
+
+### Initialization
+- We initialize the distance array to store the shortest distance from the starting point to each cell on the board. 
+  - All distances are set to infinity except the starting point, which is set to 0.
+- We use a priority queue to process cells based on their distances from the starting point. 
+  - Cells with smaller distances are processed first.
+
+
+### Processing Cells
+- Start with the starting point and add it to the priority queue with distance 0. 
+- While the priority queue is not empty, do the following:
+    - Pop the cell with the smallest distance from the priority queue.
+    - If the popped cell is the ending point, we found the shortest path and can reconstruct it using a parent_map.
+    - Otherwise, consider all neighboring cells that are not walls or already visited.
+    - For each valid neighbor, update its distance if a shorter path is found, and add it to the priority queue.
+
+### Reconstructing the path
+Once we find the ending point, we can use the parent_map to reconstruct the shortest path from the starting point to the ending point. We start from the ending point and follow the parent pointers back to the starting point, adding each cell to the path in reverse order.
+
+### Returning the result
+Return the shortest path as a list of cell coordinates representing the ball's movement from the starting point to the ending point.
+
+
+### Handling Ball Movement
+During the algorithm execution, whenever the ball moves to a new cell, we update that cell's value in the board to '*' to visualize ball movement during the path reconstruction.
