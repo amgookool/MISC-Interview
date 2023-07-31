@@ -7,7 +7,7 @@ import PropTypes from "prop-types"; // For checking types of variables
 // Form for adding a new todo
 // The onAddTodo function is passed as a prop to the component from the parent component
 const AddTodoForm = ({ onAddTodo }) => {
-  const backendUrl = "http://localhost:8080"; // The URL of the backend
+  const backendUrl = "http://192.168.100.141:8080"; // The URL of the backend
   const [name, setName] = useState(""); // React hook for the name of the todo
   const [description, setDescription] = useState(""); // React hook for the description of the todo
 
@@ -45,7 +45,7 @@ const AddTodoForm = ({ onAddTodo }) => {
       <Form.Group controlId="todoDescription">
         <Form.Label>Description</Form.Label>
         <Form.Control
-          as="textbox"
+          as="textarea"
           rows={3}
           value={description}
           onChange={(e) => setDescription(e.target.value)}

@@ -4,7 +4,7 @@ import axios from "axios";
 import { Card, Button, Form } from "react-bootstrap";
 
 const TodoList = () => {
-  const backendUrl = "http://localhost:8080"; // The URL of the backend
+  const backendUrl = "http://192.168.100.141:8080"; // The URL of the backend
   // The useState hook is used to store the todos in the state of the component
   const [todos, setTodos] = useState([]); // The initial value of the todos is an empty array
   const [editingTodoId, setEditingTodoId] = useState(null); // The initial value of the editingTodoId is null
@@ -126,7 +126,7 @@ const TodoList = () => {
                   >
                     <h6>Edit</h6>
                   </Button>
-                  
+
                   <Button
                     variant="danger"
                     onClick={() => handleDeleteTodo(todo.id)}
