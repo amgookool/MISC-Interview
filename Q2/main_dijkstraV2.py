@@ -99,7 +99,7 @@ def dijkstras(board: [[int]], start: tuple, end: tuple) -> list:
         # Loop through the neighbors of the current position
         for nx, ny in get_neighbors(board=board, x=x, y=y, prev_direction=prev_direction):
             # Get the new distance if the neighbor is not a wall otherwise the distance is the same
-            new_dist = dist + 1 if board[nx][ny] != 2 else dist
+            new_dist = dist + 1 if board[nx][ny] != 2 or 1 else dist
             # Check if the new distance is less than the distance of the neighbor
             if new_dist < distance[nx][ny]:
                 # Update the distance of the neighbor
