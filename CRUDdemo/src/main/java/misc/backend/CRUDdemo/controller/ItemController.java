@@ -13,9 +13,9 @@ import misc.backend.CRUDdemo.models.ItemEntity;
 import misc.backend.CRUDdemo.services.ItemService;
 
 // Controller class for handling requests to the API
-@RestController 
+@RestController
 // Allow requests from this origin
-@CrossOrigin(origins = "http://localhost:5173") 
+@CrossOrigin(origins = { "http://192.168.100.141:5173", "http://192.168.100.156:5173", "http://192.168.100.135:5173" })
 // Base path for all requests to this controller
 @RequestMapping("/api/items")
 public class ItemController {

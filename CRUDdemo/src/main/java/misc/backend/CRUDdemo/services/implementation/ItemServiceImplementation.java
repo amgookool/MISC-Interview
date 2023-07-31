@@ -46,8 +46,12 @@ public class ItemServiceImplementation implements ItemService {
         ItemEntity existingItem = itemRepository.findById(id).orElse(null);
         // If the item exists, update it with the new values and save it
         if (existingItem != null) {
-            existingItem.setName(item.getName());
-            existingItem.setDescription(item.getDescription());
+            if (item.getName() != null) {
+                existingItem.setName(item.getName());
+            }
+            if (item.getDescription() != null) {
+                existingItem.setDescription(item.getDescription());
+            }
             itemRepository.save(existingItem);
             return true;
         } else {
